@@ -1,0 +1,124 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>index</title>
+	<link rel="stylesheet" type="text/css" href="css/login.css">
+	<link rel="stylesheet" type="text/css" href="css/reg.css">
+</head>
+<body>
+	<div class="main">
+		<div class="header">
+			<div class="headerLeft">
+			
+			</div>
+			<div class="headerRight">
+				<a href="login.html">登录</a>
+				<a href="#">注册</a>
+				<a href="index.html">个人中心</a>
+				<a href="car.html">购物车</a>
+				
+			</div>
+		</div>
+		<div class="nav"></div>
+		
+		<div class="nav"></div>
+		<!-- 1楼商品 -->
+		<div class="content">
+			<div class="foor">
+				<!-- <div class="foorHeader">
+					<div class="left">
+						<span>购物车</span>
+					
+					</div>
+					<div class="right">
+						<span>热销产品</span>
+						<span><a href="">更多</a></span></div>	
+
+				</div> -->
+				<!-- 商品信息区 -->
+			<div class="foorFooter3">
+			<div class="login">
+			<div class="loginForm">
+			<form action="zhuce.php" method="post" id="form">
+				账户：<input type="text" name="zhanghao" placeholder="请输入你的账号"><span id="veruser"></span><br><br>
+			密码：<input type="password" name="password"><span id="passver"></span><br><br>
+			确认：<input type="password" name="repassword"><span id="repassword"></span><br><br>
+			昵称：<input type="text" name="name"><br>
+			性别：<input type="radio" name="sex" value="男" checked="checked">男
+			<input type="radio" name="sex" value="女">女<br>
+	
+			<input type="reset" value="确认输入">
+			<input type="reset" value="重新输入">
+		</form>
+		</div>
+	</div>
+			</div>
+			
+			</div>
+		
+		</div>
+	
+		<div class="nav"></div>
+		<div class="footer">
+			<ul>
+				<li><a href="">关于我们</a></li>
+				<li><a href="">联系我们</a></li>
+				<li><a href="">客服中心</a></li>
+				<li><a href="">公司地图</a></li>
+
+			</ul>
+		</div>
+	</div>
+
+</body>
+</html>
+<script type="text/javascript">
+		window.onload=function(){
+			// 1、对密码的强度做判断
+			var passTxt=document.querySelector("[name=password]");//选中设置有name属性的元素，并且要求改元素的name值是password
+
+		//给密码框添加一个失去焦点
+		passTxt.onblur=function(e){
+			// 获取密码框后面提示标签
+			var passver=document.querySelector("#passver")
+			if (passTxt.value.length<6) {
+				// 密码过于简单
+			// alert("你的密码太简单了！")
+			passver.innerHTML="你的密码太简单了！"
+			passver.style.color='black'
+
+			}else if(passTxt.value.length<9){
+				//安全等级为弱
+				// alert("安全等级为弱")
+				passver.innerHTML="安全等级为弱"
+				passver.style.color = 'black'
+			}else if(passTxt.value.length<12){
+				//安全等级为弱
+				// alert("安全等级为弱")
+				passver.innerHTML="安全等级为中"
+				passver.style.color = 'orange'
+			}else{
+				//安全等级为弱
+				// alert("安全等级为弱")
+				passver.innerHTML="安全等级为强"
+				passver.style.color = 'green'
+			}
+		}
+		// 2）判断两次密码是否一致
+		var repassword=document.querySelector("[name=repassword]")
+		repassword.onblur=function(){
+			var repassver=document.querySelector("#repassword")
+			if(passTxt.value==repassword.value){
+				//说明两次密码一致
+				repassver.innerHTML="√"
+				repassver.style.color="green"
+			}else{
+				//说明两次密码不一致
+				repassver.innerHTML="两次密码不一致"
+				repassver.style.color="gray"
+			}
+		}
+}
+</script>
